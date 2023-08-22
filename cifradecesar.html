@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cifra de Cesar</title>
+</head>
+<body>
+    <h1>Cifra de Cesar</h1>
+    
+    <label for="palavra">Palavra:</label>
+    <input type="text" id="palavra">
+    
+    <label for="deslocamento">Deslocamento:</label>
+    <input type="number" id="deslocamento">
+    
+    <button onclick="criptografar()">Criptografar</button>
+    <button onclick="descriptografar()">Descriptografar</button>
+    
+    <p id="resultado"></p>
+    
+    <script>
+        function criptografar() {
+            var palavra = document.getElementById("palavra").value;
+            var deslocamento = parseInt(document.getElementById("deslocamento").value);
+            
+            var palavraCriptografada = "";
+            for (var i = 0; i < palavra.length; i++) {
+                var charCode = palavra.charCodeAt(i);
+                
+                if (charCode >= 65 && charCode <= 90) { // Letras maiúsculas
+                    charCode = (charCode - 65 + deslocamento) % 26 + 65;
+                } else if (charCode >= 97 && charCode <= 122) { // Letras minúsculas
+                    charCode = (charCode - 97 + deslocamento) % 26 + 97;
+                }
+                
+                palavraCriptografada += String.fromCharCode(charCode);
+            }
+            
+            document.getElementById("resultado").textContent = "Palavra criptografada: " + palavraCriptografada;
+        }
+
+        function descriptografar() {
+            var palavra = document.getElementById("palavra").value;
+            var deslocamento = parseInt(document.getElementById("deslocamento").value);
+            
+            var palavraCriptografada = "";
+            for (var i = 0; i < palavra.length; i++) {
+                var charCode = palavra.charCodeAt(i);
+                
+                if (charCode >= 65 && charCode <= 90) { // Letras maiúsculas
+                    charCode = (charCode - 65 - deslocamento) % 26 + 65;
+                } else if (charCode >= 97 && charCode <= 122) { // Letras minúsculas
+                    charCode = (charCode - 97 - deslocamento) % 26 + 97;
+                }
+                
+                palavraCriptografada += String.fromCharCode(charCode);
+            }
+            
+            document.getElementById("resultado").textContent = "Palavra criptografada: " + palavraCriptografada;
+        }
+
+    </script>
+</body>
+</html>
