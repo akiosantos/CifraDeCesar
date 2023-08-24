@@ -18,6 +18,11 @@
     <p id="resultado"></p>
     
     <script>
+    // Função auxiliar para calcular o módulo positivo de um número
+        function mod(n, m) {
+            return ((n % m) + m) % m;
+    }
+        
         function criptografar() {
             var palavra = document.getElementById("palavra").value;
             var deslocamento = parseInt(document.getElementById("deslocamento").value);
