@@ -32,7 +32,7 @@
                 var charCode = palavra.charCodeAt(i);
                 
                 if (charCode >= 65 && charCode <= 90) { // Letras maiúsculas
-                    charCode = (charCode - 65 + deslocamento) % 26 + 65;
+                    charCode = mod(charCode - 65 + deslocamento, 26) + 65;
                 } else if (charCode >= 97 && charCode <= 122) { // Letras minúsculas
                     charCode = (charCode - 97 + deslocamento) % 26 + 97;
                 }
