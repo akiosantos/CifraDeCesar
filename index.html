@@ -37,7 +37,7 @@
                 if (charCode >= 65 && charCode <= 90) { // Letras maiúsculas
                     charCode = mod(charCode - 65 + deslocamento, 26) + 65;
                 } else if (charCode >= 97 && charCode <= 122) { // Letras minúsculas
-                    charCode = (charCode - 97 + deslocamento) % 26 + 97;
+                    charCode = mod(charCode - 97 + deslocamento, 26) + 97;
                 }
                 
                 palavraCriptografada += String.fromCharCode(charCode);
